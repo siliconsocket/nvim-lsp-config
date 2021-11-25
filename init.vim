@@ -150,10 +150,9 @@ set exrc
 
 " vim: set foldmethod=marker foldlevel=0:
 
-" formatting function
-function Formatting()
-	:augroup Format
-    :autocmd! * <buffer>
-    :autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
-    :augroup END
+" Formatting function
+function Format()
+     :lua if not bufnr then bufnr = vim.api.nvim_get_current_buf() end
+     :lua vim.lsp.buf_request_sync(bufnr, "workspace/executeCommand", { command = "_typescript.organizeImports", arguments = {vim.api.nvim_buf_get_name(bufnr)}, title = ""}, 300)
+     :lua vim.lsp.buf.formatting_seq_sync()
 endfunction

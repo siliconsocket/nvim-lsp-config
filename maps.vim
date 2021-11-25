@@ -64,3 +64,10 @@ nnoremap <C-l> :nohl<CR><C-L>
 " Eslint_d fix
 nnoremap <space>o <cmd>lua vim.lsp.buf.execute_command({ command = "_typescript.organizeImports", arguments = {vim.api.nvim_buf_get_name(0)}, title = ""})<CR>
 nnoremap <space>f <cmd>lua vim.lsp.buf.formatting_seq_sync()<CR>
+nnoremap <space><space> <cmd>exec Format()<CR>
+nnoremap <space>. <cmd>lua vim.lsp.buf.code_action()<CR>
+
+" Buffers
+nmap <space>j :bN<CR>
+nmap <space>k :bn<CR>
+nmap <space>m :!mv % %:h/
