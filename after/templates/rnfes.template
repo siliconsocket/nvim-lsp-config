@@ -1,0 +1,14 @@
+import React from 'react'
+import { Text, View } from 'react-native'
+
+interface Props {}
+
+const {{FILE}} = ({}:Props) => {
+  return (
+    <View>
+    	<Text>Hola {{FILE}}</Text>
+    </View>
+  )
+}
+
+export default {{FILE}}
